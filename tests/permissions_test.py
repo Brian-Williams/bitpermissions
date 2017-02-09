@@ -74,7 +74,7 @@ class TestMultipleInstances():
 
 
 class TestPerms():
-    
+
     def test_on_and_off_and_on_and_off_again(self):
         self.perms = Permissions(samurai, perm_rights=0)
         self.has_perm = self.perms.__getattribute__('has_' + samurai[0])
