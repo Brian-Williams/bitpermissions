@@ -7,8 +7,10 @@ class PermissionException(Exception):
 
 def build_permission_property(bit_index):
     bit = 1 << bit_index
+    doc = "Permission bit is {}".format(bit)
 
     def get(self):
+        """:return: int corresponding to the permission"""
         return self._perms & bit
 
     def set_(self, boolean):
@@ -17,7 +19,7 @@ def build_permission_property(bit_index):
         else:
             self._perms &= ~bit
 
-    return property(get, set_)
+    return property(get, set_, doc=doc)
 
 
 class BitField(int):
